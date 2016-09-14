@@ -2,7 +2,7 @@ void setup()
 {
 	background(255);
 	noLoop();
-	size(800, 800);
+	size(500, 500);
 }
 void draw()
 {
@@ -26,14 +26,14 @@ class Die //models one single dice cube
 		//variable initializations here
 	}
 	void roll()
-	{
+	{ 
 		noStroke();
 		fill(0);
 		
 		//your code here
 		if(num == 1) 
 		{
-			ellipse(x1+40, y1+40, 10, 10);
+			ellipse(x1+40, y1+40, s, s);
 		}
 		else if(num == 2)
 		{
