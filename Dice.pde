@@ -1,3 +1,4 @@
+int six = 0;
 int sum = 0;
 void setup()
 {
@@ -18,12 +19,14 @@ void draw()
 	}
 
 	textSize(20);
-	text("Total sum "+sum, 210, 550);
+	text("Total sum: "+sum, 115, 550);
+	text("Total # of 6: "+six, 270, 550);
 }
 void mousePressed()
 {
 	redraw();
 	sum=0;
+	six=0;
 
 }
 class Die //models one single dice cube
@@ -45,6 +48,7 @@ class Die //models one single dice cube
 		fill(240);
 		num=(int)(Math.random()*6)+1;
 		sum=sum + num;
+
 		//your code here
 		if(num == 1) 
 		{
@@ -78,6 +82,7 @@ class Die //models one single dice cube
 		}
 		else if(num == 6)
 		{
+			six=1+six;
 			ellipse(x1+20, y1+20, s, s);
 			ellipse(x1+20, y1+60, s, s);
 			ellipse(x1+60, y1+60, s, s);
