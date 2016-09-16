@@ -1,35 +1,50 @@
+int sum = 0;
 void setup()
 {
-	background(255);
 	noLoop();
-	size(500, 500);
+	size(520, 580);
+
 }
 void draw()
 {
-Die d = new Die(1,2);	//your code here
-d.roll();
-d.show();
+	background(0);
+	for(int m=20; m<480; m+=100){
+		for(int x=20; x<500; x+=100){
+			Die bob = new Die(x, m);
+			bob.show();
+			bob.roll();
+
+		}
+	}
+
+	textSize(20);
+	text("Total sum "+sum, 210, 550);
 }
 void mousePressed()
 {
 	redraw();
+	sum=0;
+
 }
 class Die //models one single dice cube
 {
-	int x1, y1, num;
+
+	int x1, y1, num, s;
 	//variable declarations here
 	Die(int x, int y) //constructor
 	{
 	x1=x;
 	y1=y;
 	num=(int)(Math.random()*6)+1;
+	s=20;
 		//variable initializations here
 	}
 	void roll()
-	{ 
+	{
 		noStroke();
-		fill(0);
-		
+		fill(240);
+		num=(int)(Math.random()*6)+1;
+		sum=sum + num;
 		//your code here
 		if(num == 1) 
 		{
@@ -74,9 +89,10 @@ class Die //models one single dice cube
 	}
 	void show()
 	{
+
 	noStroke();
-	fill(Math.random()*255,Math.random()*255,Math.random()*255);
-	rect(x1, y1, 20, 20, 18);
+	fill((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+	rect(x1, y1, 80, 80, 18);
 		//your code here
 	}
 }
